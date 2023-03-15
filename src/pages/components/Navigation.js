@@ -1,11 +1,34 @@
-export default function Navigation({ account, setAccount }) {
-  
+import { ethers } from 'ethers';
+import { useState, useEffect } from 'react';
+
+export default function Navigation({ signer, setSigner }) {
+    
+    const [address, setAddress] = useState(null);
+    // get account address from signer when it changes
+    useEffect(() => {
+        if (!signer) {
+            setAddress(null);
+            return;
+        }
+        signer.getAddress().then(setAddress);
+    }, [signer]);
 
     // connect to metamask
-    const getAccount = async () => {
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-        const account = accounts[0];
-        setAccount(account);
+    const connect = async () => {
+        // check if metamask is installed
+        if (typeof window.ethereum === 'undefined') {
+            alert('Please install MetaMask first.');
+            return;
+        }
+
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        await provider.send('eth_requestAccounts', []);
+        setSigner(provider.getSigner());
+    };
+
+    // delete signer
+    const disconnect = async () => {
+        setSigner(null);
     };
   
     return (
@@ -16,17 +39,18 @@ export default function Navigation({ account, setAccount }) {
         </div>
 
         {/*show account address if connected, else show connect button*/}
-        {account ? (
+        {address ? (
             <button
             type="button"
-            className="nav-connect">
-                {account.slice(0, 6) + '...' + account.slice(-4)}
+            className="nav-connect"
+            onClick={disconnect}>
+                {address.slice(0, 6) + '...' + address.slice(-4)}
             </button>
         ) : (
             <button
                 type="button"
                 className="nav-connect"
-                onClick={getAccount}>
+                onClick={connect}>
                 Connect
             </button>
         )}
