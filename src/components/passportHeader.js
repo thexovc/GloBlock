@@ -1,8 +1,7 @@
 import { ethers } from 'ethers';
 import { useState, useEffect } from 'react';
 
-import { Box, Flex, Heading, } from '@chakra-ui/react'
-import { Button, Tooltip} from '@chakra-ui/react';
+import { Box, Flex, Heading, Button, Tooltip, Image} from '@chakra-ui/react'
 
 
 export default function Navigation({ signer, setSigner }) {
@@ -15,7 +14,7 @@ export default function Navigation({ signer, setSigner }) {
             return;
         }
         signer.getAddress().then(setAddress);
-    }, [signer]);
+    }, [signer]); 
 
     // connect to metamask
     const connect = async () => {
@@ -37,13 +36,15 @@ export default function Navigation({ signer, setSigner }) {
   
     return (
     <>
-    <Flex align='center' justify='space-between' bg='blue.800' p='5' shadow='2xl'>
+    <Flex align='center' justify='space-between' bg='blue.800' p='4' shadow='2xl'>
 
-        <Heading as='h1' bg='inherit' color='white'>Passport</Heading>
+        <Image src='/passport.png' alt='passport' h='50' bg='inherit' />
+
+        <Heading bg='inherit' color='white'>Your Passport</Heading>
 
         {/*show account address if connected, else show connect button*/}
         {address ? (
-            <Tooltip label="Disconnect Wallet" bg='red' openDelay='400' aria-label="Disconnect Wallet">
+            <Tooltip label="Disconnect Wallet" bg='red' openDelay='200' aria-label="Disconnect Wallet">
                 <Button
                 onClick={disconnect}>
                     {address.slice(0, 6) + '...' + address.slice(-4)}
