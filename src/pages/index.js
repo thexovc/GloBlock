@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useState, useEffect, useRef, use } from 'react';
-import Navigation from './components/Navigation';
+import Navigation from '../components/Navigation';
 
 // import web3 libraries
 import { ethers } from 'ethers';
@@ -18,8 +18,8 @@ export default function Home() {
         <link type="image/png" sizes="16x16" rel="icon" href="/passport.png" />
       </Head>
       
-      <Navigation signer={signer} setSigner={setSigner}/>
       <main>
+        <Navigation signer={signer} setSigner={setSigner}/>
       </main>
     </>
   )
