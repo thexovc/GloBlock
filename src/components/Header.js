@@ -9,6 +9,7 @@ import {
   MenuItem,
   IconButton,
   Image,
+  Divider
 } from "@chakra-ui/react";
 
 export default function Header( {title} ) {
@@ -47,6 +48,8 @@ export default function Header( {title} ) {
             <MenuItem as="a" href="/visaApplication">
               Visa Application
             </MenuItem>
+            
+            <Divider />
             <MenuItem as="a" href="/myVisa">
               My Visas
             </MenuItem>

@@ -2,7 +2,7 @@ import { ethers } from 'ethers';
 import { useState, useEffect } from 'react';
 
 import { HamburgerIcon } from '@chakra-ui/icons';
-import { Box, Flex, Heading, Button, IconButton, Tooltip, Image, Menu, MenuButton, MenuList, MenuItem} from '@chakra-ui/react'
+import { Box, Flex, Heading, Button, IconButton, Tooltip, Image, Menu, MenuButton, MenuList, MenuItem, Divider} from '@chakra-ui/react'
 
 
 export default function ConnectHeader({ signer, setSigner, title}) {
@@ -46,7 +46,7 @@ export default function ConnectHeader({ signer, setSigner, title}) {
         <Box bg='inherit'>
             {/*show account address if connected, else show connect button*/}
             {address ? (
-                <Tooltip label="Disconnect Wallet" bg='red' openDelay='200' aria-label="Disconnect Wallet">
+                <Tooltip label="Disconnect Wallet" bg='red.400' openDelay='200' aria-label="Disconnect Wallet">
                     <Button
                     onClick={disconnect}>
                         {address.slice(0, 6) + '...' + address.slice(-4)}
@@ -55,10 +55,10 @@ export default function ConnectHeader({ signer, setSigner, title}) {
             ) : (
                 <>
                     <Button
-                    _hover={{bg: 'orange.200'}}
+                    _hover={{ bg: '#75afe6' }}
                     aria-label="Connect to Wallet"
                     onClick={connect}>
-                        Connect Wallet
+                        Connect
                     </Button>
                 </>
             )}
@@ -84,6 +84,8 @@ export default function ConnectHeader({ signer, setSigner, title}) {
                 <MenuItem as="a" href="/visaApplication">
                 Visa Application
                 </MenuItem>
+
+                <Divider />
                 <MenuItem as="a" href="/myVisa">
                 My Visas
                 </MenuItem>
