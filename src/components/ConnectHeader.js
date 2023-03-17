@@ -5,7 +5,7 @@ import { HamburgerIcon } from '@chakra-ui/icons';
 import { Box, Flex, Heading, Button, IconButton, Tooltip, Image, Menu, MenuButton, MenuList, MenuItem} from '@chakra-ui/react'
 
 
-export default function ConnectHeader({ signer, setSigner }) {
+export default function ConnectHeader({ signer, setSigner, title}) {
     
     const [address, setAddress] = useState(null);
     // get account address from signer when it changes
@@ -41,7 +41,7 @@ export default function ConnectHeader({ signer, setSigner }) {
 
         <Image src='/passport.png' alt='passport' h='50' bg='inherit' />
 
-        <Heading bg='inherit' color='white'>Your Passport</Heading>
+        <Heading bg='inherit' color='white'>{title}</Heading>
 
         <Box bg='inherit'>
             {/*show account address if connected, else show connect button*/}

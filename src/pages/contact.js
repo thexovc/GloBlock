@@ -66,7 +66,8 @@ export default function Home() {
   return (
     <Box>
       <Box background="green" margin="0">
-        <Header />
+        <Header
+        title={"Contact"}/>
       </Box>
       <Head>
         <title>Create Next App</title>

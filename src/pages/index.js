@@ -21,7 +21,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link type="image/png" sizes="16x16" rel="icon" href="/passport.png" />
       </Head>
-      <Header />
+      <Header
+      title={"Home"}/>
       <main>
         <Flex direction="column" align="center" p="4">
           <Heading>HOME</Heading>

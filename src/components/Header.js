@@ -11,7 +11,7 @@ import {
   Image,
 } from "@chakra-ui/react";
 
-export default function Header() {
+export default function Header( {title} ) {
   return (
     <>
       <Flex
@@ -24,7 +24,7 @@ export default function Header() {
         <Image src="/passport.png" alt="passport" h="50" bg="inherit" />
 
         <Heading bg="inherit" color="white">
-          Your Passport
+          {title}
         </Heading>
         <Menu>
           <MenuButton

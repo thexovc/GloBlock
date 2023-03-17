@@ -18,7 +18,9 @@ export default function Home() {
       </Head>
 
       <main>
-        <ConnectHeader signer={signer} setSigner={setSigner} />
+        <ConnectHeader
+        title={'Your Passport'}
+        signer={signer} setSigner={setSigner} />
       </main>
     </>
   );

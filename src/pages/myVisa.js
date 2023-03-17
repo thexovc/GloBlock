@@ -19,7 +19,9 @@ export default function Home() {
       </Head>
 
       <main>
-        <ConnectHeader />
+        <ConnectHeader 
+        title={'Your Visas'}
+        signer={signer} setSigner={setSigner}/>
       </main>
       <Box>This page is for my visas</Box>
     </>

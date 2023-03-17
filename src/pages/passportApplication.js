@@ -19,7 +19,8 @@ export default function Home() {
       </Head>
 
       <main>
-        <Header />
+        <Header 
+        title={"Passport Applications"}/>
       </main>
       <Box>This page is for passport application</Box>
     </>
