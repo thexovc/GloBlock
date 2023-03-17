@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useState, useEffect, useRef, use } from "react";
-import Navigation from "@/components/passportHeader";
+import ConnectHeader from "@/components/ConnectHeader";
 
 // import web3 libraries
 import { ethers } from "ethers";
@@ -19,7 +19,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <Navigation />
+        <ConnectHeader />
       </main>
       <Box>This page is for my visas</Box>
     </>

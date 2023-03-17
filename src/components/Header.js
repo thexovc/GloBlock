@@ -31,7 +31,7 @@ export default function Header() {
             backgroundColor="white"
             as={IconButton}
             aria-label="Options"
-            icon={<HamburgerIcon />}
+            icon={<HamburgerIcon bg='inherit' />}
             variant="outline"
           />
           <MenuList>
