@@ -5,7 +5,7 @@ import { Box, Button, Flex, Heading, Text, Image } from "@chakra-ui/react";
 
 // import web3 libraries
 import { ethers } from "ethers";
-import Header from "@/components/Header";
+import Header from "../components/Header";
 
 export default function Home() {
   const [signer, setSigner] = useState(null);

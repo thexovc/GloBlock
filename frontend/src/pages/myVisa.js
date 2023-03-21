@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useState, useEffect, useRef, use } from "react";
-import ConnectHeader from "@/components/ConnectHeader";
+import ConnectHeader from "../components/ConnectHeader";
 
 // import web3 libraries
 import { ethers } from "ethers";
@@ -19,9 +19,11 @@ export default function Home() {
       </Head>
 
       <main>
-        <ConnectHeader 
-        title={'Your Visas'}
-        signer={signer} setSigner={setSigner}/>
+        <ConnectHeader
+          title={"Your Visas"}
+          signer={signer}
+          setSigner={setSigner}
+        />
       </main>
       <Box>This page is for my visas</Box>
     </>

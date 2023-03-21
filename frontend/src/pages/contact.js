@@ -13,7 +13,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import Header from "@/components/Header";
+import Header from "../components/Header";
 import { sendContactForm } from "../../lib/api";
 
 const initValues = { name: "", email: "", subject: "", message: "" };
@@ -66,8 +66,7 @@ export default function Home() {
   return (
     <Box>
       <Box background="green" margin="0">
-        <Header
-        title={"Contact"}/>
+        <Header title={"Contact"} />
       </Box>
       <Head>
         <title>Create Next App</title>

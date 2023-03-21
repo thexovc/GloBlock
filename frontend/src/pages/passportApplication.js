@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useState, useEffect, useRef, use } from "react";
-import Header from "@/components/Header";
+import Header from "../components/Header";
 
 // import web3 libraries
 import { ethers } from "ethers";
@@ -13,16 +13,15 @@ export default function Home() {
     <>
       <Head>
         <title>NFT Passport Interface</title>
-        <meta name="description" content="Website to apply for Visa" />
+        <meta name="description" content="Website to apply for passports" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link type="image/png" sizes="16x16" rel="icon" href="/passport.png" />
       </Head>
 
       <main>
-        <Header 
-        title={'Visa Applications'}/>
+        <Header title={"Passport Applications"} />
       </main>
-      <Box>This page is for visa application</Box>
+      <Box>This page is for passport application</Box>
     </>
   );
 }
