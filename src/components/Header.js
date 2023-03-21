@@ -9,30 +9,27 @@ import {
   MenuItem,
   IconButton,
   Image,
-  Divider
+  Divider,
 } from "@chakra-ui/react";
 
-export default function Header( {title} ) {
+export default function Header({ title }) {
   return (
     <>
       <Flex
+        bg="blackAlpha.900"
         align="center"
         justify="space-between"
-        bg="blue.800"
         p="5"
-        shadow="2xl"
+        shadow="dark-lg"
       >
-        <Image src="/passport.png" alt="passport" h="50" bg="inherit" />
-
-        <Heading bg="inherit" color="white">
-          {title}
-        </Heading>
+        <Image src="/passport.png" alt="passport" h="50" />
+        <Heading color="white">{title}</Heading>
         <Menu>
           <MenuButton
             backgroundColor="white"
             as={IconButton}
             aria-label="Options"
-            icon={<HamburgerIcon bg='inherit' />}
+            icon={<HamburgerIcon bg="inherit" />}
             variant="outline"
           />
           <MenuList>
@@ -48,7 +45,7 @@ export default function Header( {title} ) {
             <MenuItem as="a" href="/visaApplication">
               Visa Application
             </MenuItem>
-            
+
             <Divider />
             <MenuItem as="a" href="/myVisa">
               My Visas
