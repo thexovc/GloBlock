@@ -12,7 +12,7 @@ import { PASSPORT_NFT_ADDRESS, PASSPORT_NFT_ABI } from "@/constants/constants";
 export default function Home() {
   const [signer, setSigner] = useState(null);
   const { loading, error, data: passportMint } = useQuery(GET_My_PASSPORT);
-  console.log("wow", passportMint.passportMinteds);
+  console.log("wow", passportMint.passportMinteds[0].holder);
   return (
     <>
       <Head>
@@ -28,11 +28,14 @@ export default function Home() {
           signer={signer}
           setSigner={setSigner}
         />
-        {passportMint.passportMinteds.map((nft) => {
-          const { tokenId, holder } = nft;
-          console.log(holder);
-          <Box>{holder}</Box>;
-        })}
+        <Box>
+          lol
+          {passportMint.passportMinteds.map((nft) => {
+            const { tokenId, holder } = nft;
+            console.log(tokenId);
+            <NFTBox />;
+          })}
+        </Box>
       </main>
     </>
   );

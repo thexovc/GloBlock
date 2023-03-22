@@ -12,9 +12,9 @@ import {
 } from "@graphprotocol/graph-ts";
 
 export class PassportMinted extends Entity {
-  constructor(id: string) {
+  constructor(id: Bytes) {
     super();
-    this.set("id", Value.fromString(id));
+    this.set("id", Value.fromBytes(id));
   }
 
   save(): void {
@@ -22,24 +22,26 @@ export class PassportMinted extends Entity {
     assert(id != null, "Cannot save PassportMinted entity without an ID");
     if (id) {
       assert(
-        id.kind == ValueKind.STRING,
-        `Entities of type PassportMinted must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+        id.kind == ValueKind.BYTES,
+        `Entities of type PassportMinted must have an ID of type Bytes but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
-      store.set("PassportMinted", id.toString(), this);
+      store.set("PassportMinted", id.toBytes().toHexString(), this);
     }
   }
 
-  static load(id: string): PassportMinted | null {
-    return changetype<PassportMinted | null>(store.get("PassportMinted", id));
+  static load(id: Bytes): PassportMinted | null {
+    return changetype<PassportMinted | null>(
+      store.get("PassportMinted", id.toHexString())
+    );
   }
 
-  get id(): string {
+  get id(): Bytes {
     let value = this.get("id");
-    return value!.toString();
+    return value!.toBytes();
   }
 
-  set id(value: string) {
-    this.set("id", Value.fromString(value));
+  set id(value: Bytes) {
+    this.set("id", Value.fromBytes(value));
   }
 
   get holder(): Bytes {
@@ -58,5 +60,14 @@ export class PassportMinted extends Entity {
 
   set tokenId(value: BigInt) {
     this.set("tokenId", Value.fromBigInt(value));
+  }
+
+  get tokenURI(): string {
+    let value = this.get("tokenURI");
+    return value!.toString();
+  }
+
+  set tokenURI(value: string) {
+    this.set("tokenURI", Value.fromString(value));
   }
 }

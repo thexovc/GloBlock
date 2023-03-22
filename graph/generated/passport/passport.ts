@@ -104,6 +104,10 @@ export class PassportMinted__Params {
   get tokenId(): BigInt {
     return this._event.parameters[1].value.toBigInt();
   }
+
+  get tokenURI(): string {
+    return this._event.parameters[2].value.toString();
+  }
 }
 
 export class Transfer extends ethereum.Event {

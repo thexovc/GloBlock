@@ -6,6 +6,7 @@ const GET_My_PASSPORT = gql`
       id
       holder
       tokenId
+      tokenURI
     }
   }
 `;

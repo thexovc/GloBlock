@@ -1,5 +1,6 @@
-type PassportMinted @entity(immutable: true) {
-  id: ID!
+type PassportMinted @entity {
+  id: Bytes!
   holder: Bytes! # address
   tokenId: BigInt! # uint256
+  tokenURI: String! # string
 }

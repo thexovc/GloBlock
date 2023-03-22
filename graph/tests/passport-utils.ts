@@ -80,7 +80,8 @@ export function createOwnershipTransferredEvent(
 
 export function createPassportMintedEvent(
   holder: Address,
-  tokenId: BigInt
+  tokenId: BigInt,
+  tokenURI: string
 ): PassportMinted {
   let passportMintedEvent = changetype<PassportMinted>(newMockEvent())
 
@@ -94,6 +95,9 @@ export function createPassportMintedEvent(
       "tokenId",
       ethereum.Value.fromUnsignedBigInt(tokenId)
     )
+  )
+  passportMintedEvent.parameters.push(
+    new ethereum.EventParam("tokenURI", ethereum.Value.fromString(tokenURI))
   )
 
   return passportMintedEvent
