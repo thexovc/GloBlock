@@ -1,0 +1,24 @@
+specVersion: 0.0.5
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: passport
+    network: mumbai
+    source:
+      address: "0x8BB632706b987CdEa29d7843686117f3784F4054"
+      abi: passport
+      startBlock: 33392861
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - PassportMinted
+      abis:
+        - name: passport
+          file: passport/abis/passport.json
+      eventHandlers:
+        - event: PassportMinted(address,uint256)
+          handler: handlePassportMinted
+      file: passport/passport.wasm

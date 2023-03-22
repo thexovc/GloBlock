@@ -1,0 +1,5 @@
+type PassportMinted @entity(immutable: true) {
+  id: ID!
+  holder: Bytes! # address
+  tokenId: BigInt! # uint256
+}
