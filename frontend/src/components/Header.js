@@ -19,7 +19,7 @@ export default function Header({ title }) {
         bg="blackAlpha.900"
         align="center"
         justify="space-between"
-        p="5"
+        p="4"
         shadow="dark-lg"
       >
         <Image src="/passport.png" alt="passport" h="50" />

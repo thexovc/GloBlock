@@ -77,33 +77,32 @@ export default function Home() {
         <Flex
           align="center"
           justify="space-between"
-          bg="blue.800"
+          bg="blackAlpha.900"
           p="4"
-          shadow="2xl"
+          shadow="dark-lg"
         >
-          <Image src="/passport.png" alt="passport" h="50" bg="inherit" />
+          <Image src="/passport.png" alt="passport" h="50" />
 
-          <Heading bg="inherit" color="white">
-            Your Passort
-          </Heading>
+          <Heading color="white">Your Passort</Heading>
 
-          <Box bg="inherit">
+          <Box>
             {/*show account address if connected, else show connect button*/}
             {address ? (
-              <Tooltip
-                label="Disconnect Wallet"
-                bg="red.400"
-                openDelay="200"
-                aria-label="Disconnect Wallet"
+              <Button
+                bg="inherit"
+                color="goldenrod"
+                border="1px"
+                _hover={{ borderColor: "red", color: "red" }}
+                onClick={disconnect}
               >
-                <Button onClick={disconnect}>
-                  {address.slice(0, 6) + "..." + address.slice(-4)}
-                </Button>
-              </Tooltip>
+                {address.slice(0, 6) + "..." + address.slice(-4)}
+              </Button>
             ) : (
               <>
                 <Button
-                  _hover={{ bg: "#75afe6" }}
+                  color="goldenrod"
+                  bg="blackAlpha"
+                  _hover={{ bg: "goldenrod", color: "blackAlpha.800" }}
                   aria-label="Connect to Wallet"
                   onClick={connect}
                 >
