@@ -1,8 +1,8 @@
 const { gql } = require("@apollo/client");
 
 const GET_My_PASSPORT = gql`
-  query DataQuery($tokenId: String) {
-    passportMinteds(first: 5) {
+  query DataQuery($holder: String) {
+    passportMinteds(first: 5, where: { holder: $holder }) {
       id
       holder
       tokenId

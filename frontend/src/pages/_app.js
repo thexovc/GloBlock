@@ -4,7 +4,7 @@ import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: "https://api.studio.thegraph.com/query/41903/goblock2/v0.0.1",
+  uri: "https://api.studio.thegraph.com/query/41903/passport/v0.0.1",
 });
 
 export default function App({ Component, pageProps }) {

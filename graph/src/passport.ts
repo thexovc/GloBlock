@@ -8,5 +8,6 @@ export function handlePassportMinted(event: PassportMintedEvent): void {
   entity.holder = event.params.holder;
   entity.tokenId = event.params.tokenId;
   entity.tokenURI = event.params.tokenURI;
+
   entity.save();
 }

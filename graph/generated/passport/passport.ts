@@ -136,6 +136,31 @@ export class Transfer__Params {
   }
 }
 
+export class passport__validityResult {
+  value0: BigInt;
+  value1: BigInt;
+
+  constructor(value0: BigInt, value1: BigInt) {
+    this.value0 = value0;
+    this.value1 = value1;
+  }
+
+  toMap(): TypedMap<string, ethereum.Value> {
+    let map = new TypedMap<string, ethereum.Value>();
+    map.set("value0", ethereum.Value.fromUnsignedBigInt(this.value0));
+    map.set("value1", ethereum.Value.fromUnsignedBigInt(this.value1));
+    return map;
+  }
+
+  getIssueDate(): BigInt {
+    return this.value0;
+  }
+
+  getExpireDate(): BigInt {
+    return this.value1;
+  }
+}
+
 export class passport extends ethereum.SmartContract {
   static bind(address: Address): passport {
     return new passport("passport", address);
@@ -181,6 +206,50 @@ export class passport extends ethereum.SmartContract {
     return ethereum.CallResult.fromValue(value[0].toAddress());
   }
 
+  getExpireDate(tokenId: BigInt): BigInt {
+    let result = super.call(
+      "getExpireDate",
+      "getExpireDate(uint256):(uint256)",
+      [ethereum.Value.fromUnsignedBigInt(tokenId)]
+    );
+
+    return result[0].toBigInt();
+  }
+
+  try_getExpireDate(tokenId: BigInt): ethereum.CallResult<BigInt> {
+    let result = super.tryCall(
+      "getExpireDate",
+      "getExpireDate(uint256):(uint256)",
+      [ethereum.Value.fromUnsignedBigInt(tokenId)]
+    );
+    if (result.reverted) {
+      return new ethereum.CallResult();
+    }
+    let value = result.value;
+    return ethereum.CallResult.fromValue(value[0].toBigInt());
+  }
+
+  getIssueDate(tokenId: BigInt): BigInt {
+    let result = super.call("getIssueDate", "getIssueDate(uint256):(uint256)", [
+      ethereum.Value.fromUnsignedBigInt(tokenId)
+    ]);
+
+    return result[0].toBigInt();
+  }
+
+  try_getIssueDate(tokenId: BigInt): ethereum.CallResult<BigInt> {
+    let result = super.tryCall(
+      "getIssueDate",
+      "getIssueDate(uint256):(uint256)",
+      [ethereum.Value.fromUnsignedBigInt(tokenId)]
+    );
+    if (result.reverted) {
+      return new ethereum.CallResult();
+    }
+    let value = result.value;
+    return ethereum.CallResult.fromValue(value[0].toBigInt());
+  }
+
   isApprovedForAll(owner: Address, operator: Address): boolean {
     let result = super.call(
       "isApprovedForAll",
@@ -200,6 +269,25 @@ export class passport extends ethereum.SmartContract {
       "isApprovedForAll(address,address):(bool)",
       [ethereum.Value.fromAddress(owner), ethereum.Value.fromAddress(operator)]
     );
+    if (result.reverted) {
+      return new ethereum.CallResult();
+    }
+    let value = result.value;
+    return ethereum.CallResult.fromValue(value[0].toBoolean());
+  }
+
+  isValid(tokenId: BigInt): boolean {
+    let result = super.call("isValid", "isValid(uint256):(bool)", [
+      ethereum.Value.fromUnsignedBigInt(tokenId)
+    ]);
+
+    return result[0].toBoolean();
+  }
+
+  try_isValid(tokenId: BigInt): ethereum.CallResult<boolean> {
+    let result = super.tryCall("isValid", "isValid(uint256):(bool)", [
+      ethereum.Value.fromUnsignedBigInt(tokenId)
+    ]);
     if (result.reverted) {
       return new ethereum.CallResult();
     }
@@ -254,6 +342,29 @@ export class passport extends ethereum.SmartContract {
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(value[0].toAddress());
+  }
+
+  passportToUser(param0: Address): BigInt {
+    let result = super.call(
+      "passportToUser",
+      "passportToUser(address):(uint256)",
+      [ethereum.Value.fromAddress(param0)]
+    );
+
+    return result[0].toBigInt();
+  }
+
+  try_passportToUser(param0: Address): ethereum.CallResult<BigInt> {
+    let result = super.tryCall(
+      "passportToUser",
+      "passportToUser(address):(uint256)",
+      [ethereum.Value.fromAddress(param0)]
+    );
+    if (result.reverted) {
+      return new ethereum.CallResult();
+    }
+    let value = result.value;
+    return ethereum.CallResult.fromValue(value[0].toBigInt());
   }
 
   supportsInterface(interfaceId: Bytes): boolean {
@@ -311,6 +422,32 @@ export class passport extends ethereum.SmartContract {
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(value[0].toString());
+  }
+
+  validity(param0: BigInt): passport__validityResult {
+    let result = super.call("validity", "validity(uint256):(uint256,uint256)", [
+      ethereum.Value.fromUnsignedBigInt(param0)
+    ]);
+
+    return new passport__validityResult(
+      result[0].toBigInt(),
+      result[1].toBigInt()
+    );
+  }
+
+  try_validity(param0: BigInt): ethereum.CallResult<passport__validityResult> {
+    let result = super.tryCall(
+      "validity",
+      "validity(uint256):(uint256,uint256)",
+      [ethereum.Value.fromUnsignedBigInt(param0)]
+    );
+    if (result.reverted) {
+      return new ethereum.CallResult();
+    }
+    let value = result.value;
+    return ethereum.CallResult.fromValue(
+      new passport__validityResult(value[0].toBigInt(), value[1].toBigInt())
+    );
   }
 }
 
