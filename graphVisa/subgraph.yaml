@@ -1,0 +1,29 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: visa
+    network: mumbai
+    source:
+      address: "0xa14F089bDF35f5885490595A002C8D7409A26678"
+      abi: visa
+      startBlock: 33470201
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - ApprovalForAll
+        - OwnershipTransferred
+        - Transfer
+        - VisaCancelled
+        - VisaMinted
+      abis:
+        - name: visa
+          file: ./abis/visa.json
+      eventHandlers:
+        - event: VisaMinted(address,uint256,uint256,uint256,string)
+          handler: handleVisaMinted
+      file: ./src/visa.ts

@@ -19,9 +19,9 @@ import {
   MenuItem,
   Divider,
 } from "@chakra-ui/react";
-import GET_My_PASSPORT from "@/constants/MyPassportQuery";
+import GET_My_VISA from "@/constants/MyVisaQuery";
 import { PASSPORT_NFT_ADDRESS, PASSPORT_NFT_ABI } from "@/constants/constants";
-import NFTBox from "@/components/PassportNFTBox";
+import VisaNFTBox from "@/components/VisaNFTBox";
 
 export default function Home() {
   const [signer, setSigner] = useState(null);
@@ -29,11 +29,11 @@ export default function Home() {
   const {
     loading,
     error,
-    data: passportMint,
-  } = useQuery(GET_My_PASSPORT, {
+    data: visaMint,
+  } = useQuery(GET_My_VISA, {
     variables: { holder: address },
   });
-
+  console.log(visaMint);
   // connect to metamask
   const connect = async () => {
     // check if metamask is installed
@@ -144,17 +144,19 @@ export default function Home() {
             </Menu>
           </Box>
         </Flex>
-        {passportMint ? (
+        {visaMint ? (
           <Box>
-            {passportMint.passportMinteds.map((nft) => {
-              const { tokenId, holder, tokenURI } = nft;
+            {visaMint.visaMinteds.map((nft) => {
+              const { tokenId, holder, fromDate, endDate, tokenURI } = nft;
               console.log(tokenURI);
               return (
-                <NFTBox
+                <VisaNFTBox
                   tokenId={tokenId}
                   holder={holder}
                   key={tokenId}
                   tokenUri={tokenURI}
+                  fromDate={fromDate}
+                  endDate={endDate}
                 />
               );
             })}

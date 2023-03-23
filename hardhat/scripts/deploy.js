@@ -15,7 +15,7 @@ const main = async () => {
 };
 
 //Passport deployed at:  0x5df89f7727e663842b5f4582776BAfb62686955c
-//Visa deployed at : 0xB02BDfA084513956DAAdeC50820242EEdA6B917d
+//Visa deployed at : 0xa14F089bDF35f5885490595A002C8D7409A26678
 
 main()
   .then(() => process.exit(0))

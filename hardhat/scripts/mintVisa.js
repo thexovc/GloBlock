@@ -1,10 +1,14 @@
+const {
+  duration,
+} = require("@nomicfoundation/hardhat-network-helpers/dist/src/helpers/time");
 const { ethers } = require("hardhat");
 const {
   storeTokenUriMetadata,
   storeImages,
 } = require("../utils/uploadToPinata");
 
-const visaDuration = "60*60*24*21";
+const visaDuration = 60 * 60 * 24 * 21;
+const timeUntilStart = 60 * 60 * 24 * 7;
 const imageLocation = "./imageVisa";
 
 const metadataTemplate = {
@@ -14,6 +18,7 @@ const metadataTemplate = {
   attributes: [
     {
       visaType: "Tourist Visa",
+      visaPurpose: "Tourism",
     },
   ],
 };
@@ -26,9 +31,9 @@ const main = async () => {
   const user = "0x7e6e41BA05FdBE4e1617cfB521154550537255df";
   const contract = await ethers.getContractAt(
     "Visa",
-    "0xB02BDfA084513956DAAdeC50820242EEdA6B917d"
+    "0xa14F089bDF35f5885490595A002C8D7409A26678"
   );
-  await contract.safeMint(user, tokenUri);
+  await contract.safeMint(user, timeUntilStart, visaDuration, tokenUri);
   console.log("Nft got minted");
 };
 
