@@ -32,6 +32,7 @@ export default function Home() {
     data: visaMint,
   } = useQuery(GET_My_VISA, {
     variables: { holder: address },
+    context: { clientName: "endpoint2" },
   });
   console.log(visaMint);
   // connect to metamask

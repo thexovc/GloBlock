@@ -32,6 +32,7 @@ export default function Home() {
     data: passportMint,
   } = useQuery(GET_My_PASSPORT, {
     variables: { holder: address },
+    context: { clientName: "endpoint1" },
   });
 
   // connect to metamask
