@@ -1,13 +1,13 @@
 {
-  "name": "goblock",
+  "name": "passport",
   "license": "UNLICENSED",
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ goblock",
-    "create-local": "graph create --node http://localhost:8020/ goblock",
-    "remove-local": "graph remove --node http://localhost:8020/ goblock",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 goblock",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ passport",
+    "create-local": "graph create --node http://localhost:8020/ passport",
+    "remove-local": "graph remove --node http://localhost:8020/ passport",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 passport",
     "test": "graph test"
   },
   "dependencies": {

@@ -31,7 +31,7 @@ const main = async () => {
   const user = "0x7e6e41BA05FdBE4e1617cfB521154550537255df";
   const contract = await ethers.getContractAt(
     "Visa",
-    "0xa14F089bDF35f5885490595A002C8D7409A26678"
+    "0x25FFE479B1578842137AB2344737127bF5D759b1"
   );
   await contract.safeMint(user, timeUntilStart, visaDuration, tokenUri);
   console.log("Nft got minted");

@@ -1,0 +1,8 @@
+{
+  "optimism-goerli": {
+    "Visa": {
+      "address": "0x25FFE479B1578842137AB2344737127bF5D759b1",
+      "startBlock": 7200233
+    }
+  }
+}

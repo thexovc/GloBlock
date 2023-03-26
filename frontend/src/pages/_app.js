@@ -9,10 +9,10 @@ import {
 } from "@apollo/client";
 
 const endpoint1 = new HttpLink({
-  uri: "https://api.studio.thegraph.com/query/41903/passport/v0.0.1",
+  uri: "https://api.studio.thegraph.com/query/41903/optipassport/v0.0.1",
 });
 const endpoint2 = new HttpLink({
-  uri: "https://api.studio.thegraph.com/query/41903/visa/v0.0.1",
+  uri: "https://api.studio.thegraph.com/query/41903/optivisa/v0.0.1",
 });
 
 const client = new ApolloClient({

@@ -3,12 +3,12 @@ schema:
   file: schema.graphql
 dataSources:
   - kind: ethereum
-    name: passport
-    network: mumbai
+    name: Passport
+    network: optimism-goerli
     source:
-      address: "0x5df89f7727e663842b5f4582776BAfb62686955c"
-      abi: passport
-      startBlock: 33456993
+      address: "0x4F706fc521EA03C56F437A184f6e97bf857e67cc"
+      abi: Passport
+      startBlock: 7200227
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -20,9 +20,9 @@ dataSources:
         - PassportMinted
         - Transfer
       abis:
-        - name: passport
-          file: passport/abis/passport.json
+        - name: Passport
+          file: Passport/abis/Passport.json
       eventHandlers:
         - event: PassportMinted(address,uint256,string)
           handler: handlePassportMinted
-      file: passport/passport.wasm
+      file: Passport/Passport.wasm

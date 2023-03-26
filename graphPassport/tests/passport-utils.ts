@@ -6,7 +6,7 @@ import {
   OwnershipTransferred,
   PassportMinted,
   Transfer
-} from "../generated/passport/passport"
+} from "../generated/Passport/Passport"
 
 export function createApprovalEvent(
   owner: Address,

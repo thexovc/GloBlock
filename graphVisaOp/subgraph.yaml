@@ -1,0 +1,29 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Visa
+    network: optimism-goerli
+    source:
+      address: "0x25FFE479B1578842137AB2344737127bF5D759b1"
+      abi: Visa
+      startBlock: 7200233
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - ApprovalForAll
+        - OwnershipTransferred
+        - Transfer
+        - VisaCancelled
+        - VisaMinted
+      abis:
+        - name: Visa
+          file: ./abis/Visa.json
+      eventHandlers:
+        - event: VisaMinted(address,uint256,uint256,uint256,string)
+          handler: handleVisaMinted
+      file: ./src/visa.ts

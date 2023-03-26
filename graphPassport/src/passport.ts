@@ -1,4 +1,4 @@
-import { PassportMinted as PassportMintedEvent } from "../generated/passport/passport";
+import { PassportMinted as PassportMintedEvent } from "../generated/Passport/Passport";
 import { PassportMinted } from "../generated/schema";
 
 export function handlePassportMinted(event: PassportMintedEvent): void {

@@ -1,8 +1,8 @@
 {
-  "mumbai": {
-    "passport": {
-      "address": "0x5df89f7727e663842b5f4582776BAfb62686955c",
-      "startBlock": 33456993
+  "optimism-goerli": {
+    "Passport": {
+      "address": "0x4F706fc521EA03C56F437A184f6e97bf857e67cc",
+      "startBlock": 7200227
     }
   }
 }
