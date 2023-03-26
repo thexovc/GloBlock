@@ -17,7 +17,7 @@ const visa = () => {
       <div className="w-5/6 md:w-2/3 mx-auto flex flex-col gap-5 mt-10 md:mt-20">
         <Link
           href={"/visaPage"}
-          className="rounded-lg md:py-20 py-10 md:bg-[url('../assets/india.jpg')] bg-[url('../assets/ret3.png')] bg-no-repeat bg-cover"
+          className="rounded-lg md:py-20 py-10  bg-[url('../assets/ret3.png')] bg-no-repeat bg-cover"
         >
           <h1 className="text-3xl font-bold">India</h1>
         </Link>
