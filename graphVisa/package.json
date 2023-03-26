@@ -1,13 +1,13 @@
 {
-  "name": "visa",
+  "name": "Visa",
   "license": "UNLICENSED",
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ visa",
-    "create-local": "graph create --node http://localhost:8020/ visa",
-    "remove-local": "graph remove --node http://localhost:8020/ visa",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 visa",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ Visa",
+    "create-local": "graph create --node http://localhost:8020/ Visa",
+    "remove-local": "graph remove --node http://localhost:8020/ Visa",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 Visa",
     "test": "graph test"
   },
   "dependencies": {

@@ -1,4 +1,4 @@
-import { VisaMinted as VisaMintedEvent } from "../generated/visa/visa";
+import { VisaMinted as VisaMintedEvent } from "../generated/Visa/Visa";
 import { VisaMinted } from "../generated/schema";
 
 export function handleVisaMinted(event: VisaMintedEvent): void {

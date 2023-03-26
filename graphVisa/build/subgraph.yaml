@@ -3,12 +3,12 @@ schema:
   file: schema.graphql
 dataSources:
   - kind: ethereum
-    name: visa
-    network: mumbai
+    name: Visa
+    network: optimism-goerli
     source:
-      address: "0xa14F089bDF35f5885490595A002C8D7409A26678"
-      abi: visa
-      startBlock: 33470201
+      address: "0x25FFE479B1578842137AB2344737127bF5D759b1"
+      abi: Visa
+      startBlock: 7200233
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -21,9 +21,9 @@ dataSources:
         - VisaCancelled
         - VisaMinted
       abis:
-        - name: visa
-          file: visa/abis/visa.json
+        - name: Visa
+          file: Visa/abis/Visa.json
       eventHandlers:
         - event: VisaMinted(address,uint256,uint256,uint256,string)
           handler: handleVisaMinted
-      file: visa/visa.wasm
+      file: Visa/Visa.wasm

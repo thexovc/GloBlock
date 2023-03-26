@@ -1,8 +1,0 @@
-type VisaMinted @entity(immutable: true) {
-  id: Bytes!
-  holder: Bytes! # address
-  tokenId: BigInt! # uint256
-  fromDate: BigInt! # uint256
-  endDate: BigInt! # uint256
-  tokenURI: String! # string
-}

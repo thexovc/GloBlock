@@ -8,7 +8,7 @@ import {
 } from "matchstick-as/assembly/index"
 import { Address, BigInt } from "@graphprotocol/graph-ts"
 import { Approval } from "../generated/schema"
-import { Approval as ApprovalEvent } from "../generated/visa/visa"
+import { Approval as ApprovalEvent } from "../generated/Visa/Visa"
 import { handleApproval } from "../src/visa"
 import { createApprovalEvent } from "./visa-utils"
 

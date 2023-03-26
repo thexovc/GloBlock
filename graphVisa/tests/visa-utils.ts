@@ -7,7 +7,7 @@ import {
   Transfer,
   VisaCancelled,
   VisaMinted
-} from "../generated/visa/visa"
+} from "../generated/Visa/Visa"
 
 export function createApprovalEvent(
   owner: Address,
