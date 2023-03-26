@@ -7,6 +7,12 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
+/**@title A Passport NFT Contract
+ * @author René
+ * @notice This contract is for creating a Passport NFT
+ * the nft passport can't be transfered
+ */
+
 contract Passport is ERC721URIStorage, Ownable {
     // Type declarations
     using Counters for Counters.Counter;
@@ -27,6 +33,12 @@ contract Passport is ERC721URIStorage, Ownable {
     /* Functions */
     constructor() ERC721("Passport", "PSP") {}
 
+    /**
+     * @dev This is the function that mints the nft
+     * the contract owner can mint the nft for the user.
+     * it sets the time while the passport is valid.
+     */
+
     function safeMint(address to, string memory tokenUri) public onlyOwner {
         if (passportToUser[to] > 0) {
             _burn(passportToUser[to]);
@@ -40,6 +52,10 @@ contract Passport is ERC721URIStorage, Ownable {
         _setTokenURI(tokenId, tokenUri);
         emit PassportMinted(to, tokenId, tokenUri);
     }
+
+    /**
+     * @dev The holder can burn the nft
+     */
 
     function burn(uint256 tokenId) external {
         require(
@@ -74,6 +90,8 @@ contract Passport is ERC721URIStorage, Ownable {
     function _burn(uint256 tokenId) internal override(ERC721URIStorage) {
         super._burn(tokenId);
     }
+
+    // Getter Functions
 
     function getExpireDate(uint256 tokenId) public view returns (uint) {
         return validity[tokenId].issueDate;

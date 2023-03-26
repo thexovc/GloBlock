@@ -6,6 +6,12 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
+/**@title A Visa NFT contract
+ * @author René
+ * @notice This contract is for creating a visa contract
+ * the nft can't be transfered
+ */
+
 contract Visa is ERC721URIStorage, Ownable {
     // Type declarations
     string public country = "Cryponya";
@@ -43,6 +49,12 @@ contract Visa is ERC721URIStorage, Ownable {
 
     /* Functions */
     constructor() ERC721("Visa", "VSA") {}
+
+    /**
+     * @dev This is the function that mints the nft
+     * the contract owner can mint the nft for the user
+     * it sets the time while the visa is valid
+     */
 
     function safeMint(
         address to,

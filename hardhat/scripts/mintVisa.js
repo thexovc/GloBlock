@@ -28,7 +28,7 @@ const main = async () => {
     tokenUris = await handleTokenUris();
     tokenUri = tokenUris[0];
   }
-  const user = "0x7e6e41BA05FdBE4e1617cfB521154550537255df";
+  const user = "0x9403E393750a6A165eCE4857cA5C5310b6Aeb1e9";
   const contract = await ethers.getContractAt(
     "Visa",
     "0x25FFE479B1578842137AB2344737127bF5D759b1"
