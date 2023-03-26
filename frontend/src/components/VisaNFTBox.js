@@ -46,7 +46,7 @@ export default function VisaNFTBox({
           <Box>Purpose of Visa: {visaPurpose}</Box>
         </Box>
       ) : (
-        <Box>fdsafdaf</Box>
+        <Box>You don't have a visa</Box>
       )}
       <Box>
         <Box></Box>

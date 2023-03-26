@@ -53,7 +53,7 @@ export default function PassportNFTBox({ tokenId, holder, tokenUri }) {
           <Box>Surename: {surname}</Box>
         </Box>
       ) : (
-        <Box>fdsafdaf</Box>
+        <Box>You don't have a passport</Box>
       )}
       <Box>
         <Box></Box>
